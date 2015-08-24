@@ -68,6 +68,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -86,6 +87,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UserControlToolWindow1.Designer.vb">
+      <DependentUpon>UserControlToolWindow1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlToolWindow1.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlHost.Designer.vb">
+      <DependentUpon>UserControlHost.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlHost.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Connect.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -102,6 +115,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UserControlToolWindow2.Designer.vb">
+      <DependentUpon>UserControlToolWindow2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlToolWindow2.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -109,6 +128,12 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlToolWindow1.resx">
+      <DependentUpon>UserControlToolWindow1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlToolWindow2.resx">
+      <DependentUpon>UserControlToolWindow2.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +147,9 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
