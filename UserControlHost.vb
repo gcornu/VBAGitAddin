@@ -2,7 +2,7 @@
 Imports System.Windows.Forms
 Imports System.Drawing
 
-<ComVisible(True), Guid("11234567-89ab-cdef-0123-456789abcdef"), ProgId("MyVBAAddin.UserControlHost")> _
+<ComVisible(True), Guid("C2AE3224-EAC2-4F83-B5DC-F845BAFDAA09"), ProgId("MyVBAAddin.UserControlHost")> _
 Public Class UserControlHost
 
     Private Class SubClassingWindow

@@ -87,6 +87,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventHandler.vb" />
     <Compile Include="UserControlToolWindow1.Designer.vb">
       <DependentUpon>UserControlToolWindow1.vb</DependentUpon>
     </Compile>
@@ -115,12 +116,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="UserControlToolWindow2.Designer.vb">
-      <DependentUpon>UserControlToolWindow2.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlToolWindow2.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -131,9 +126,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlToolWindow1.resx">
       <DependentUpon>UserControlToolWindow1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControlToolWindow2.resx">
-      <DependentUpon>UserControlToolWindow2.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
