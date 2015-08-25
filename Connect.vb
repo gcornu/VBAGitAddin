@@ -111,21 +111,23 @@ Public Class Connect
             standardCommandBar = _VBE.CommandBars.Item("Standard")
 
             'Commit button
-            commandBarControlCommit = standardCommandBar.Controls.Add(MsoControlType.msoControlButton)
+            AddCommandBarButton(standardCommandBar, "Commit")
+            'commandBarControlCommit = standardCommandBar.Controls.Add(MsoControlType.msoControlButton)
 
-            _CommandBarButtonCommit = DirectCast(commandBarControlCommit, CommandBarButton)
-            _CommandBarButtonCommit.Caption = "Commit"
-            _CommandBarButtonCommit.FaceId = 59
-            _CommandBarButtonCommit.Style = MsoButtonStyle.msoButtonIconAndCaption
-            _CommandBarButtonCommit.BeginGroup = True
+            '_CommandBarButtonCommit = DirectCast(commandBarControlCommit, CommandBarButton)
+            '_CommandBarButtonCommit.Caption = "Commit"
+            '_CommandBarButtonCommit.FaceId = 59
+            '_CommandBarButtonCommit.Style = MsoButtonStyle.msoButtonIconAndCaption
+            '_CommandBarButtonCommit.BeginGroup = True
 
             'Push button
-            commandBarControlPush = standardCommandBar.Controls.Add(MsoControlType.msoControlButton)
+            AddCommandBarButton(standardCommandBar, "Push")
+            'commandBarControlPush = standardCommandBar.Controls.Add(MsoControlType.msoControlButton)
 
-            _CommandBarButtonPush = DirectCast(commandBarControlPush, CommandBarButton)
-            _CommandBarButtonPush.Caption = "Push"
-            _CommandBarButtonPush.FaceId = 59
-            _CommandBarButtonPush.Style = MsoButtonStyle.msoButtonIconAndCaption
+            '_CommandBarButtonPush = DirectCast(commandBarControlPush, CommandBarButton)
+            '_CommandBarButtonPush.Caption = "Push"
+            '_CommandBarButtonPush.FaceId = 59
+            '_CommandBarButtonPush.Style = MsoButtonStyle.msoButtonIconAndCaption
 
 
             'Menu item in "Tools" menu
@@ -167,7 +169,6 @@ Public Class Connect
         commandBarButton = DirectCast(commandBarControl, CommandBarButton)
 
         commandBarButton.Caption = caption
-        commandBarButton.FaceId = 59
 
         Return commandBarButton
 
