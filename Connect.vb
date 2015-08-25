@@ -18,8 +18,9 @@ Public Class Connect
 
     Private _toolWindow1 As VBAExtensibility.Window
 
-    Private Sub OnConnection(Application As Object, ConnectMode As ext_ConnectMode, AddInInst As Object, _
-       ByRef custom As System.Array) Implements IDTExtensibility2.OnConnection
+    Private _GitManager As GitManager
+
+    Private Sub OnConnection(Application As Object, ConnectMode As ext_ConnectMode, AddInInst As Object, ByRef custom As System.Array) Implements IDTExtensibility2.OnConnection
 
         Try
 
@@ -74,6 +75,13 @@ Public Class Connect
 
         End If
 
+        If Not _toolWindow1 Is Nothing Then
+
+            _toolWindow1.Delete()
+            _toolWindow1 = Nothing
+
+        End If
+
     End Sub
 
     Private Sub OnStartupComplete(ByRef custom As System.Array) _
@@ -95,8 +103,6 @@ Public Class Connect
     Private Sub InitializeAddIn()
 
         Dim standardCommandBar As CommandBar
-        Dim commandBarControlCommit As CommandBarControl
-        Dim commandBarControlPush As CommandBarControl
         Dim toolsCommandBar As CommandBar
         Dim toolsCommandBarControl As CommandBarControl
 
@@ -111,23 +117,10 @@ Public Class Connect
             standardCommandBar = _VBE.CommandBars.Item("Standard")
 
             'Commit button
-            AddCommandBarButton(standardCommandBar, "Commit")
-            'commandBarControlCommit = standardCommandBar.Controls.Add(MsoControlType.msoControlButton)
-
-            '_CommandBarButtonCommit = DirectCast(commandBarControlCommit, CommandBarButton)
-            '_CommandBarButtonCommit.Caption = "Commit"
-            '_CommandBarButtonCommit.FaceId = 59
-            '_CommandBarButtonCommit.Style = MsoButtonStyle.msoButtonIconAndCaption
-            '_CommandBarButtonCommit.BeginGroup = True
+            _CommandBarButtonCommit = AddCommandBarButton(standardCommandBar, "Commit")
 
             'Push button
-            AddCommandBarButton(standardCommandBar, "Push")
-            'commandBarControlPush = standardCommandBar.Controls.Add(MsoControlType.msoControlButton)
-
-            '_CommandBarButtonPush = DirectCast(commandBarControlPush, CommandBarButton)
-            '_CommandBarButtonPush.Caption = "Push"
-            '_CommandBarButtonPush.FaceId = 59
-            '_CommandBarButtonPush.Style = MsoButtonStyle.msoButtonIconAndCaption
+            _CommandBarButtonPush = AddCommandBarButton(standardCommandBar, "Push")
 
 
             'Menu item in "Tools" menu
@@ -151,6 +144,7 @@ Public Class Connect
             ' Calculate the position of a new commandbar popup to the right of the "Tools" menu
             toolsCommandBarControl = DirectCast(toolsCommandBar.Parent, CommandBarControl)
 
+            _GitManager = New GitManager
 
         Catch ex As Exception
 
@@ -169,6 +163,7 @@ Public Class Connect
         commandBarButton = DirectCast(commandBarControl, CommandBarButton)
 
         commandBarButton.Caption = caption
+        commandBarButton.Style = MsoButtonStyle.msoButtonCaption
 
         Return commandBarButton
 
@@ -198,7 +193,7 @@ Public Class Connect
 
     Private Sub _CommandBarButtonCommit_Click(Ctrl As Microsoft.Office.Core.CommandBarButton, ByRef CancelDefault As Boolean) Handles _CommandBarButtonCommit.Click
 
-        MessageBox.Show("This should git add . + git commit -m")
+        _GitManager.PerformGitActions()
 
     End Sub
 

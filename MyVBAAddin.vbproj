@@ -87,6 +87,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GitManager.vb" />
     <Compile Include="UserControlToolWindow1.Designer.vb">
       <DependentUpon>UserControlToolWindow1.vb</DependentUpon>
     </Compile>
