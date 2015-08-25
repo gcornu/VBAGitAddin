@@ -1,4 +1,6 @@
-﻿Public Class GitManager
+﻿Imports System.Windows.Forms
+
+Public Class GitManager
 
     Dim _wsh As Object
 
@@ -61,12 +63,14 @@
 
             Do While Not .StdOut.AtEndOfStream
                 strTextFromStdStream = "[" & strProcessID & .ProcessID & "]" & .StdOut.ReadLine()
-                Debug.Print(strTextFromStdStream)
+                'Debug.Print(strTextFromStdStream)
+                MessageBox.Show(strTextFromStdStream)
             Loop
 
             Do While Not .StdErr.AtEndOfStream
                 strTextFromStdStream = "[" & strProcessID & .ProcessID & "]" & .StdErr.ReadLine()
-                Debug.Print(strTextFromStdStream)
+                'Debug.Print(strTextFromStdStream)
+                MessageBox.Show(strTextFromStdStream)
             Loop
 
             .StdErr.Close()

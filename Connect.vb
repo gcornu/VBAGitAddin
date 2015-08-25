@@ -13,6 +13,7 @@ Public Class Connect
     Private _AddIn As VBAExtensibility.AddIn
     Private WithEvents _CommandBarButtonCommit As CommandBarButton
     Private WithEvents _CommandBarButtonPush As CommandBarButton
+    Private WithEvents _CommandBarButtonPull As CommandBarButton
     Private WithEvents _CommandBarPopupButton As CommandBarButton
     Private _CommandBarPopup As CommandBarPopup
 
@@ -58,6 +59,13 @@ Public Class Connect
 
             _CommandBarButtonPush.Delete()
             _CommandBarButtonPush = Nothing
+
+        End If
+
+        If Not _CommandBarButtonPull Is Nothing Then
+
+            _CommandBarButtonPull.Delete()
+            _CommandBarButtonPull = Nothing
 
         End If
 
@@ -118,9 +126,12 @@ Public Class Connect
 
             'Commit button
             _CommandBarButtonCommit = AddCommandBarButton(standardCommandBar, "Commit")
-
+            
             'Push button
             _CommandBarButtonPush = AddCommandBarButton(standardCommandBar, "Push")
+
+            'Pull button
+            _CommandBarButtonPull = AddCommandBarButton(standardCommandBar, "Pull")
 
 
             'Menu item in "Tools" menu
@@ -200,6 +211,12 @@ Public Class Connect
     Private Sub _CommandBarButtonPush_Click(Ctrl As Microsoft.Office.Core.CommandBarButton, ByRef CancelDefault As Boolean) Handles _CommandBarButtonPush.Click
 
         MessageBox.Show("This should git push")
+
+    End Sub
+
+    Private Sub _CommandBarButtonPull_Click(Ctrl As Microsoft.Office.Core.CommandBarButton, ByRef CancelDefault As Boolean) Handles _CommandBarButtonPull.Click
+
+        MessageBox.Show("This should git pull")
 
     End Sub
 
