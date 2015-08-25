@@ -8,6 +8,12 @@ Public Class GitManager
         _wsh = CreateObject("WScript.Shell")
     End Sub
 
+    Protected Overrides Sub Finalize()
+
+        _wsh = Nothing
+
+    End Sub
+
     ' Inspired from https://github.com/JohnGreenan/5_ExcelVBE/blob/master/ExcelGit.bas
     Public Sub PerformGitActions()
         'Const

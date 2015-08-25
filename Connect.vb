@@ -90,6 +90,9 @@ Public Class Connect
 
         End If
 
+        _GitManager = Nothing
+
+
     End Sub
 
     Private Sub OnStartupComplete(ByRef custom As System.Array) _
